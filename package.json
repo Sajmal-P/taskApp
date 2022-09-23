@@ -1,0 +1,134 @@
+{
+  "name": "neornseed",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "postinstall": "husky install",
+    "release": "standard-version",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "@gorhom/bottom-sheet": "^4.3.1",
+    "@react-native-community/checkbox": "^0.5.12",
+    "@react-native-masked-view/masked-view": "^0.2.6",
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/stack": "^6.2.1",
+    "@reduxjs/toolkit": "^1.8.2",
+    "@types/react": "^18.0.10",
+    "@types/redux-logger": "^3.0.9",
+    "axios": "^0.27.2",
+    "i18n-js": "^3.9.2",
+    "lottie-react-native": "^5.1.3",
+    "moment": "^2.29.3",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-code-push": "^7.0.4",
+    "react-native-flash-message": "^0.2.1",
+    "react-native-gesture-handler": "^2.4.2",
+    "react-native-image-crop-picker": "^0.38.0",
+    "react-native-indicators": "^0.17.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-material-dropdown-v2-fixed": "^0.11.3",
+    "react-native-mmkv-storage": "^0.7.6",
+    "react-native-modal": "^13.0.1",
+    "react-native-paper": "^4.12.1",
+    "react-native-reanimated": "^2.8.0",
+    "react-native-responsive-screen": "^1.4.2",
+    "react-native-safe-area-context": "^4.2.5",
+    "react-native-screens": "^3.13.1",
+    "react-native-svg": "^12.3.0",
+    "react-native-svg-transformer": "^1.0.0",
+    "react-native-tailwindcss": "^1.1.11",
+    "react-native-vector-icons": "^9.2.0",
+    "react-navigation": "^4.4.4",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^9.0.0",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@types/i18n-js": "^3.8.2",
+    "@types/jest": "^26.0.23",
+    "@types/lodash.memoize": "^4.1.6",
+    "@types/react-native": "^0.66.4",
+    "@types/react-native-vector-icons": "^6.4.12",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.32.0",
+    "husky": "^7.0.4",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.67.0",
+    "react-test-renderer": "17.0.2",
+    "standard-version": "^9.3.2",
+    "typescript": "^4.4.4"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "tagFormat": "${version}",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version}"
+        }
+      ]
+    ]
+  }
+}

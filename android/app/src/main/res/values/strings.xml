@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NeoRnSeed</string>
+    <string moduleConfig="true"    name="CodePushDeploymentKey">9ysy-kQ6QRy93wvOcXd_YNqm2tPUoXk3Ysqns</string>
+</resources>

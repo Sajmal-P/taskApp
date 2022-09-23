@@ -1,0 +1,4 @@
+export const REQUEST_USER_DATA = 'REQUEST_USER_DATA';
+export const RECIEVE_USER_DATA = 'RECIEVE_USER_DATA';
+export const FILTER_USER_DATA = 'FILTER_USER_DATA';
+export const SORT_DATA = 'SORT_DATA';
