@@ -44,7 +44,7 @@ const CreteUser = ({navigation, route}) => {
   const [isPublic, setIsPublic] = useState(false);
 
   useEffect(() => {
-    console.log(route.params.page)
+    console.log(route.params.page);
     if (route.params.id !== undefined) {
       let query = `/${route.params.id}`;
       dispatch(singleUserDataSlice.actions.getSingleUserData({query}));
@@ -66,7 +66,7 @@ const CreteUser = ({navigation, route}) => {
     }
   }, [states.singleData.singleUserDetails]);
 
-  const retrieveSingleDataService = (query) => {
+  const retrieveSingleDataService = query => {
     dispatch(singleUserDataSlice.actions.getSingleUserData({query}));
     setData(states.singleData.singleUserDetails);
   };
@@ -167,7 +167,7 @@ const CreteUser = ({navigation, route}) => {
     }
   };
 
-  const modalCloseFunction = (status) => {
+  const modalCloseFunction = status => {
     setTimeout(() => {
       setResponseModal(false);
       if (status === 'Success') {
@@ -261,14 +261,12 @@ const CreteUser = ({navigation, route}) => {
           </View>
           {route.params.type === 'create' ? (
             <Pressable
-              style={{
-                backgroundColor: '#00cc99',
-                alignSelf: 'center',
-                padding: wp('2%'),
-                borderRadius: 25,
-                paddingHorizontal: wp('7%'),
-                marginHorizontal: wp('3%'),
-              }}
+              style={[
+                styles.actionBtn,
+                {
+                  backgroundColor: '#00cc99',
+                },
+              ]}
               onPress={() => {
                 InitialValidation();
               }}>
@@ -279,28 +277,24 @@ const CreteUser = ({navigation, route}) => {
         {route.params.type === 'update' ? (
           <View style={{flexDirection: 'row'}}>
             <Pressable
-              style={{
-                backgroundColor: '#00cc99',
-                alignSelf: 'center',
-                padding: wp('2%'),
-                borderRadius: 25,
-                paddingHorizontal: wp('7%'),
-                marginLeft: wp('1%'),
-              }}
+              style={[
+                {
+                  backgroundColor: '#00cc99',
+                },
+                styles.actionBtn,
+              ]}
               onPress={() => {
                 updateServiceCall();
               }}>
               <Text style={{color: '#fff'}}>Save</Text>
             </Pressable>
             <Pressable
-              style={{
-                backgroundColor: '#cc0000',
-                alignSelf: 'center',
-                padding: wp('2%'),
-                borderRadius: 25,
-                paddingHorizontal: wp('7%'),
-                marginHorizontal: wp('3%'),
-              }}
+              style={[
+                {
+                  backgroundColor: '#cc0000',
+                },
+                styles.actionBtn,
+              ]}
               onPress={() => {
                 deleteServiceCall();
               }}>
@@ -408,7 +402,13 @@ const styles = StyleSheet.create({
   checkbox: {
     alignSelf: 'flex-start',
   },
-
+  actionBtn: {
+    alignSelf: 'center',
+    padding: wp('2%'),
+    borderRadius: 25,
+    paddingHorizontal: wp('7%'),
+    marginHorizontal: wp('3%'),
+  },
   image: {
     width: wp('25%'),
     height: wp('25%'),
