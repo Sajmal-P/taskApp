@@ -114,6 +114,7 @@ const CreteUser = ({navigation, route}) => {
       setResponseModal(true);
       setmodalTitle('Create User');
       setmodalSubtitel('Unexpected Error Occurred');
+      modalCloseFunction('Error');
     } else {
       setResponseModal(true);
       setmodalTitle('Create User');
@@ -128,6 +129,7 @@ const CreteUser = ({navigation, route}) => {
       setResponseModal(true);
       setmodalTitle('Create User');
       setmodalSubtitel('Unexpected Error Occurred');
+      modalCloseFunction('Error');
     } else {
       setResponseModal(true);
       setmodalTitle('Delete User');
@@ -156,6 +158,7 @@ const CreteUser = ({navigation, route}) => {
       setResponseModal(true);
       setmodalTitle('Create User');
       setmodalSubtitel('Unexpected Error Occurred');
+      modalCloseFunction('Error');
     } else {
       setResponseModal(true);
       setmodalTitle('Update User');
