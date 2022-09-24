@@ -110,18 +110,30 @@ const CreteUser = ({navigation, route}) => {
       {page: route.params.page},
     ];
     dispatch(postWebserviceSlice.actions.createUserData({commonParams}));
-    setResponseModal(true);
-    setmodalTitle('Create User');
-    setmodalSubtitel('Successfully Submitted');
-    modalCloseFunction();
+    if (states.postWebservice.UserDetails === 'error') {
+      setResponseModal(true);
+      setmodalTitle('Create User');
+      setmodalSubtitel('Unexpected Error Occurred');
+    } else {
+      setResponseModal(true);
+      setmodalTitle('Create User');
+      setmodalSubtitel('Successfully Submitted');
+      modalCloseFunction('Success');
+    }
   };
   const deleteServiceCall = () => {
     const query = [`/${route.params.id}`, route.params.page];
     dispatch(postWebserviceSlice.actions.deleteUserData({query}));
-    setResponseModal(true);
-    setmodalTitle('Delete');
-    setmodalSubtitel('Successfully Deleted');
-    modalCloseFunction();
+    if (states.postWebservice.UserDetails === 'error') {
+      setResponseModal(true);
+      setmodalTitle('Create User');
+      setmodalSubtitel('Unexpected Error Occurred');
+    } else {
+      setResponseModal(true);
+      setmodalTitle('Delete User');
+      setmodalSubtitel('Successfully Deleted');
+      modalCloseFunction('Success');
+    }
   };
   const updateServiceCall = () => {
     const commonParams = [
@@ -140,16 +152,24 @@ const CreteUser = ({navigation, route}) => {
       {page: route.params.page},
     ];
     dispatch(postWebserviceSlice.actions.updateUserData({commonParams}));
-    setResponseModal(true);
-    setmodalTitle('Update');
-    setmodalSubtitel('Successfully Updated');
-    modalCloseFunction();
+    if (states.postWebservice.UserDetails === 'error') {
+      setResponseModal(true);
+      setmodalTitle('Create User');
+      setmodalSubtitel('Unexpected Error Occurred');
+    } else {
+      setResponseModal(true);
+      setmodalTitle('Update User');
+      setmodalSubtitel('Successfully Updated');
+      modalCloseFunction('Success');
+    }
   };
 
-  const modalCloseFunction = () => {
+  const modalCloseFunction = (status) => {
     setTimeout(() => {
       setResponseModal(false);
-      navigation.navigate('UserDetails');
+      if (status === 'Success') {
+        navigation.navigate('UserDetails');
+      }
     }, 3000);
   };
 
